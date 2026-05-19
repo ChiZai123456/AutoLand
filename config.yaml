@@ -1,0 +1,41 @@
+# Configuration
+task_name: "Heartl_Landmark_Detection"
+nb_landmarks: 2
+modality: "MRI"
+
+data_root: "/media/dataset"
+
+# dataset/heartl/
+# ├── train/
+# │   ├── image/
+# │   └── label/ (*.txt)
+# └── test/
+#     ├── image/
+#     └── label/
+train_img_dir: "${data_root}/train/image"
+train_lbl_dir: "${data_root}/train/label"
+test_img_dir: "${data_root}/test/image"
+test_lbl_dir: "${data_root}/test/label"
+
+
+output_dir: "/media/experiments"
+fingerprint_filename: "physics_fingerprint.json"
+llm_response_filename: "llm_config.json"
+model_library_path: "/media/model_structures.json"
+
+
+llm_api_key: "sk-wubzjxphsmqksxhcsgmdcertydtywkpypjrmbdqjksalineo"
+
+llm_model_name: "Qwen/Qwen3-VL-235B-A22B-Thinking"
+
+heatmap_sigma: 30
+
+data_config:
+  input_size: [768, 768]
+  batch_size: 16
+
+default_hyperparams:
+  epochs: 90
+  batch_size: 8
+  lr: 1e-3
+  device: "cuda"
